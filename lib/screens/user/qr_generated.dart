@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:wea_app/screens/user/confirmed_attendance_user.dart';
+import 'package:wea_app/screens/user/homepage_user.dart';
 import 'package:wea_app/utils/colors.dart';
 import 'package:wea_app/utils/texts.dart';
 
 class QrGenerated extends StatelessWidget {
-  const QrGenerated({super.key});
+  final String qrRoute;
+
+  const QrGenerated({super.key, required this.qrRoute});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Row(
+          title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Spacer(),
-              Icon(
-                Icons.account_circle,
-                size: 58.0,
-                color: Colors.blue,
+              Image.asset(
+                'assets/images/Libre_minilogo.png',
+                width: 60,
+                height: 60,
               ),
             ],
           ),
@@ -46,7 +50,7 @@ class QrGenerated extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                "Código: WEA2023-mha8fid4g",
+                "Código: $qrRoute",
                 style: CustomTexts.regularBlack16,
               ),
               const SizedBox(height: 10),
@@ -59,10 +63,41 @@ class QrGenerated extends StatelessWidget {
                 style: CustomTexts.mediumBlack14,
               ),
               const SizedBox(height: 20),
+              // TODO: Esperar que el codigo QR este escaneado
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const ConfirmedAttendanceUser()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: CustomColors.white,
+                    side: const BorderSide(color: CustomColors.red),
+                    alignment: Alignment.center,
+                  ),
+                  child: Text(
+                    'QR Escaneado',
+                    style: CustomTexts.regularRed12,
+                  ),
+                ),
+              ),
+              // TODO: Esperar que el codigo QR este escaneado
+
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomepageUser()),
+                    );
+                  },
                   icon: const Icon(Icons.arrow_back,
                       color: CustomColors.red, size: 18),
                   label: Text(

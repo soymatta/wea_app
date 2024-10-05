@@ -103,45 +103,31 @@ class DayWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => route),
-                        );
-                      },
-                      icon: const Icon(Icons.calendar_today,
-                          color: CustomColors.red, size: 14),
-                      label: SizedBox(
-                        child: Text(
-                          'Ingresar',
-                          style: CustomTexts.regularRed12,
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: CustomColors.white,
-                        side: const BorderSide(color: CustomColors.red),
-                      ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => route),
+                      );
+                    },
+                    icon: const Icon(
+                      Icons.calendar_today,
+                      color: CustomColors.red,
+                      size: 14,
                     ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Row(
-                        children: [
-                          Text(
-                            'Ver más',
-                            style: CustomTexts.regularRed12,
-                          ),
-                          const SizedBox(width: 5),
-                          const Icon(Icons.arrow_forward_ios,
-                              color: CustomColors.red, size: 14),
-                        ],
-                      ),
+                    label: Text(
+                      'Ingresar',
+                      style: CustomTexts.regularRed12,
                     ),
-                  ],
-                )
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: CustomColors.white,
+                      side: const BorderSide(color: CustomColors.red),
+                      alignment: Alignment.center,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

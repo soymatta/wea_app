@@ -70,7 +70,7 @@ class Login extends StatelessWidget {
                     // TODO: Implementar logica para decidir si es usuario o staff
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const HomepageUser()),
@@ -87,7 +87,7 @@ class Login extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const AttendanceHistory()),

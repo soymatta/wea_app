@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wea_app/screens/user/qr_generated.dart';
 import 'package:wea_app/utils/colors.dart';
 import 'package:wea_app/utils/texts.dart';
 
@@ -10,6 +11,7 @@ class EventWidget extends StatelessWidget {
   final String hour_2;
   final String name_2;
   final String locate_2;
+  final String qrRoute;
 
   const EventWidget({
     super.key,
@@ -20,6 +22,7 @@ class EventWidget extends StatelessWidget {
     required this.hour_2,
     required this.name_2,
     required this.locate_2,
+    required this.qrRoute,
   });
 
   @override
@@ -133,7 +136,14 @@ class EventWidget extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                QrGenerated(qrRoute: qrRoute)),
+                      );
+                    },
                     icon: const Icon(Icons.qr_code,
                         color: CustomColors.red, size: 18),
                     label: Text(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wea_app/screens/user/homepage_user.dart';
 import 'package:wea_app/utils/colors.dart';
 import 'package:wea_app/utils/texts.dart';
 
@@ -9,14 +10,14 @@ class ConfirmedAttendanceUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Row(
+          title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Spacer(),
-              Icon(
-                Icons.account_circle,
-                size: 58.0,
-                color: Colors.blue,
+              Image.asset(
+                'assets/images/Libre_minilogo.png',
+                width: 60,
+                height: 60,
               ),
             ],
           ),
@@ -44,7 +45,13 @@ class ConfirmedAttendanceUser extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomepageUser()),
+                    );
+                  },
                   icon: const Icon(Icons.arrow_back,
                       color: CustomColors.red, size: 18),
                   label: Text(

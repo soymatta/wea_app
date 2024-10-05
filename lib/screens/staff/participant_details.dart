@@ -12,6 +12,8 @@ class ParticipantDetails extends StatelessWidget {
   late bool attendedDay2Morning;
   late bool attendedDay2Afternoon;
 
+  ParticipantDetails({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Variables de prueba
